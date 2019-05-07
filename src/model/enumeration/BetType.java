@@ -27,7 +27,7 @@ public enum BetType {
             action(player, winSlot, this);
         }
     },
-    GREN00 {
+    GREEN00 {
         public void applyWinLoss(Player player, Slot winSlot) {
             action(player, winSlot, this);
         }
@@ -46,7 +46,7 @@ public enum BetType {
 
        if (winSlot.getColor().name().equals(bet.name())) {
            
-           int prize = (player.getBetType().equals(BetType.GREEN0) || player.getBetType().equals(BetType.GREN00))? (Slot.WHEEL_SIZE / 2 - 1) * player.getBet() : player.getBet();
+           int prize = (player.getBetType().equals(BetType.GREEN0) || player.getBetType().equals(BetType.GREEN00))? (Slot.WHEEL_SIZE / 2 - 1) * player.getBet() : player.getBet();
            player.setPoints(player.getPoints() + prize);
        } else {
            player.setPoints(player.getPoints() - player.getBet());

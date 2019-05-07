@@ -52,6 +52,7 @@ public class SimplePlayer implements Player {
             return true;
         }
 
+        resetBet();
         return false; // Return false if player have not enough points to place bet
     }
 
@@ -72,6 +73,7 @@ public class SimplePlayer implements Player {
 
     @Override
     public void resetBet() {
+        this.betType = null;
         this.betAmount = 0; // Reset the player bet to 0
     }
 

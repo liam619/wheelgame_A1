@@ -62,7 +62,9 @@ public class GameEngineImpl implements GameEngine {
             if(currentPlayer.getBet() > 0) {
                 /** Loop through playerList and apply win and loss **/
                 /** Based on the playerList bet type, it will call the method applyWinLoss then pass in the current looped player details **/
-                BetType.valueOf(currentPlayer.getBetType().toString()).applyWinLoss(currentPlayer, winningSlot);
+//                BetType.valueOf(currentPlayer.getBetType().toString()).applyWinLoss(currentPlayer, winningSlot);
+                
+                 currentPlayer.getBetType().applyWinLoss(currentPlayer, winningSlot);// << correct way?
             }
         }
     }
@@ -114,9 +116,14 @@ public class GameEngineImpl implements GameEngine {
     @Override
     public boolean placeBet(Player player, int bet, BetType betType) {
         
-        /** Make sure the bet is larger than 0 and player have sufficient point to place the bet **/
-        if(bet > 0 && player.getPoints() >= bet) {
-            player.setBet(bet);
+//        /** Make sure the bet is larger than 0 and player have sufficient point to place the bet **/
+//        if(bet > 0 && player.getPoints() >= bet) {
+//            player.setBet(bet);
+//            player.setBetType(betType);
+//            return true;
+//        }
+        
+        if(player.setBet(bet) && betType != null) {
             player.setBetType(betType);
             return true;
         }
